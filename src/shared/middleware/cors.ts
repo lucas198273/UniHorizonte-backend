@@ -1,13 +1,5 @@
-import cors from 'cors';
-import type { RequestHandler } from 'express';
-import { env } from '../../config/env.js';
-
-const allowedOrigins = (process.env.CORS_ORIGINS ?? '')
-  .split(',')
-  .map((o) => o.trim())
-  .filter(Boolean);
-
-export const corsMiddleware: RequestHandler = cors({
-  origin: env.nodeEnv === 'production' && allowedOrigins.length > 0 ? allowedOrigins : true,
-  credentials: true,
-});
+// ---------------------------------------------------------------------------
+// DEPRECATED: a configuração de CORS vive agora em src/config/cors.ts.
+// Este ficheiro apenas reexporta o middleware centralizado.
+// ---------------------------------------------------------------------------
+export { corsMiddleware } from '../../config/cors.js';
