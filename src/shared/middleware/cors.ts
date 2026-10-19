@@ -4,10 +4,7 @@ import { env } from '../../config/env.js';
 import { logger } from '../logger.js';
 
 function loadCorsOrigins(): string[] {
-  const envOrigins = env.corsOrigins
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean);
+  const envOrigins = env.corsOrigins;
 
   if (envOrigins.length === 0) {
     logger.error('CORS_ORIGINS não configurado. Requisições cross-origin serão recusadas.');

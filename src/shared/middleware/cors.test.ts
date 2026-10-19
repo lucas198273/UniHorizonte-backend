@@ -15,7 +15,10 @@ async function loadWith(file: string | null, envOrigins: string): Promise<{ orig
   vi.mocked(readFileSync).mockReturnValue(file ?? '');
   const { env } = await import('../../config/env.js');
   const { logger } = await import('../logger.js');
-  (env as { corsOrigins: string }).corsOrigins = envOrigins;
+  (env as { corsOrigins: string[] }).corsOrigins = envOrigins
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean);
   const { corsOrigins } = await import('./cors.js');
   const info = vi.mocked(logger.info).mock.calls.at(-1);
   return { origins: corsOrigins, source: (info?.[1] as { source: string } | undefined)?.source };
