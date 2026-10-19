@@ -10,6 +10,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
+    "setup:cors": "node -e \"const fs=require('fs');if(!fs.existsSync('cors-origins.txt'))fs.copyFileSync('cors-origins.example.txt','cors-origins.txt');console.log('cors-origins.txt pronto')\"",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint src",

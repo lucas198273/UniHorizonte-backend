@@ -1,0 +1,16 @@
+# CORS — origens permitidas (uma por linha, # para comentário)
+
+# --- Desenvolvimento local ---
+http://localhost:5173
+http://localhost:5174
+http://localhost:3000
+http://localhost:4173
+# --- Ambiente de teste ---
+# https://teste.seudominio.com
+# --- Landing page (produção) ---
+# https://www.seudominio.com
+# https://seudominio.com
+# --- Dashboard admin (produção) ---
+# https://admin.seudominio.com
+# --- IP local (acesso de outra máquina na mesma rede) ---
+# http://192.168.0.10:5173

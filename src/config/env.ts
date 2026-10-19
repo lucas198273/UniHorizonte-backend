@@ -16,6 +16,7 @@ function optional(name: string, fallback: string): string {
 export const env = {
   nodeEnv: optional('NODE_ENV', 'development'),
   port: Number(optional('PORT', '10000')),
+  corsOrigins: optional('CORS_ORIGINS', ''),
   supabaseUrl: required('SUPABASE_URL'),
   // Service role: bypassa RLS — usado apenas no backend, nunca no cliente.
   supabaseServiceRoleKey: required('SUPABASE_SERVICE_ROLE_KEY'),
