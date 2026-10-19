@@ -18,9 +18,14 @@ export const env = {
   port: Number(optional('PORT', '10000')),
   corsOrigins: optional('CORS_ORIGINS', ''),
   supabaseUrl: required('SUPABASE_URL'),
-  // Service role: bypassa RLS — usado apenas no backend, nunca no cliente.
   supabaseServiceRoleKey: required('SUPABASE_SERVICE_ROLE_KEY'),
   blogStorageBucket: optional('BLOG_STORAGE_BUCKET', 'blog-images'),
   productStorageBucket: optional('PRODUCT_STORAGE_BUCKET', 'product-images'),
   maxUploadSizeMb: Number(optional('MAX_UPLOAD_SIZE_MB', '5')),
+
+  // Origens CORS já parseadas (ver src/config/cors.ts)
+  corsOrigins: optional('CORS_ORIGINS', '')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean),
 } as const;

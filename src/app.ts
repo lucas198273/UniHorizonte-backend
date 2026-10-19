@@ -1,5 +1,5 @@
 import express from 'express';
-import { corsMiddleware } from './shared/middleware/cors.js';
+import { corsMiddleware } from './config/cors.js'; // ← CORS centralizado, aplicado antes das rotas
 import { errorHandler } from './shared/middleware/errorHandler.js';
 import { notFoundHandler } from './shared/middleware/notFoundHandler.js';
 import { usersRoutes } from './modules/users/users.routes.js';
